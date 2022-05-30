@@ -1,0 +1,23 @@
+{% extends "static.html"%}
+
+{% block titulo %} EDITAR LIBRO {% endblock titulo %}
+
+{% block contenido %}
+
+<!-- bs5-card-head-foot-->
+<div class="card">
+    <div class="card-header">
+        Editar Información del Libro
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Libro</h4>
+        
+        {% include 'libros/form.html' %}
+
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+
+{% endblock contenido %}

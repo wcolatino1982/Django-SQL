@@ -1,0 +1,34 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {% for campo in formulario %}
+
+
+    <!--bs5-form-input-->
+    <div class="mb-3">
+      <label for="" class="form-label">{{ campo.label }}</label>
+      
+      {% if campo.field.widget.input_type == 'file' and campo.value %}
+      </br>
+      <img src="{{MEDIA_URL}}/images/{{ campo.value }}" width="100" class="img-fluid" alt="">
+      {% endif %}
+      {% if campo.field.widget.input_type == 'file' %}
+      {% endif %}
+
+      <input 
+      type="{{ campo.field.widget.input_type }}"
+      class="form-control" 
+      name="{{ campo.name }}" 
+      id="" 
+      aria-describedby="helpId" 
+      placeholder="{{ campo.label }}"
+      value= "{{ campo.value | default:'' }}"
+      />
+
+    </div>
+    <div class="col-12 help-text"> {{ campo.errors }} </div>
+    {% endfor %}
+
+      <input name="" id="" class="btn btn-success" type="submit" value="Enviar">
+      <a name="" id="" class="btn btn-danger" href="{% url 'libros' %}" role="button">Cancelar</a>
+
+  </form>
